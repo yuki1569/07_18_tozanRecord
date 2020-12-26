@@ -75,8 +75,20 @@ unset($pdo);
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <style>
-      h1 {
-        color: red;
+      .table {
+        /* border-collapse: collapse; */
+        table-layout: fixed;
+      }
+
+      .table th,
+      .table td {
+        /* border: 1px solid #CCCCCC; */
+        padding: 5px 10px;
+        text-align: left;
+      }
+
+      .table th {
+        background-color: #FFFFFF;
       }
     </style>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -138,7 +150,7 @@ unset($pdo);
                 <h5><?= $images[$i]['name']; ?> (<?= $images[$i]['maximumAltitude']; ?>m)</h5>
                 <h5>日時 <?= $images[$i]['date']; ?></h5>
                 <h5>活動時間 <?= $images[$i]['time']; ?></h5>
-                <h5>歩いた距離 <?= $images[$i]['distance']; ?>m</h5>
+                <h5>歩いた距離 <?= $images[$i]['distance'] / 1000; ?>km</h5>
                 <a href="javascript:void(0);" onclick="var ok = confirm('削除しますか？'); if (ok) location.href='delete.php?id=<?= $images[$i]['image_id']; ?>'">
                   <i class="far fa-trash-alt"></i> 削除</a>
               </div>
@@ -149,27 +161,44 @@ unset($pdo);
       <div class="col-md-4 pt-4 pl-4">
 
         <form action="todo_create.php" method="post" enctype="multipart/form-data">
-          <legend>登山記録</legend>
-          <div>
-            山名: <input type="text" name="name">
-          </div>
-          <div>
-            日付: <input type="date" name="date">
-          </div>
-          <div>
-            時間: <input type="time" value="00:00:00" step="300" name="time">
-          </div>
-          <div>
-            距離: <input type="text" name="distance">
-          </div>
-          <div>
-            最大標高: <input type="text" name="maximumAltitude">
-          </div>
-          <div class="form-group">
-            <label>画像を選択</label>
-            <input type="file" name="image" required>
-          </div>
+          <a href="data.php">集計画面</a><br>
+          <h3>登山記録</h3>
+
+          <table class="table">
+            <thead>
+
+            </thead>
+            <tbody>
+              <tr>
+                <td>山名:</td>
+                <td><input type="text" name="name"></td>
+              </tr>
+              <tr>
+                <td>日付:</td>
+                <td><input type="date" name="date"></td>
+              </tr>
+              <tr>
+                <td>時間:</td>
+                <td><input type="time" value="00:00:00" step="300" name="time"></td>
+              </tr>
+              <tr>
+                <td>距離:</td>
+                <td><input type="text" name="distance"></td>
+              </tr>
+              <tr>
+                <td>最大標高:</td>
+                <td><input type="text" name="maximumAltitude"></td>
+              </tr>
+              <tr>
+                <td>画像を選択</td>
+                <td><input type="file" name="image" required></td>
+              </tr>
+            </tbody>
+
+          </table>
           <button type="submit" class="btn btn-primary">保存</button>
+
+          
         </form>
 
       </div>

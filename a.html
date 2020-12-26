@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>集計画面</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+</head>
+
+<body style="width: 70%; margin: 0 auto;">
+  <br>
+  <a href="todo_input.php">入力画面</a>
+
+  <table>
+    <thead>
+      <tr>
+
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>
+          <h4>合計登山数</h4>
+        </td>
+        <td>
+          <h4>
+          </h4>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <h4>合計歩行距離 </h4>
+        </td>
+        <td>
+          <h4>
+          </h4>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <h4>合計活動時間 </h4>
+        </td>
+        <td>
+          <h3>
+          </h3>
+        </td>
+      </tr>
+
+
+    </tbody>
+  </table>
+
+  <table class="table">
+    <form action="data.php" method="post">
+      <button type="submit" name="sort-date">日にち(降順)</button>
+      <button type="submit" name="sort-time">活動時間</button>
+      <button type="submit" name="sort-elevation">標高</button>
+    </form>
+    <thead>
+      <tr>
+        <th scope="col">活動日</th>
+        <th scope="col">山名</th>
+        <th scope="col">活動時間</th>
+        <th scope="col">標高</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- ここに<tr><td>deadline</td><td>todo</td><tr>の形でデータが入る -->
+    </tbody>
+  </table>
+
+</body>
+
+</html>
